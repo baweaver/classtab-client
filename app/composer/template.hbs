@@ -1,9 +1,27 @@
 {{#each model as |composer|}}
-  <h2>{{composer.name}}</h2>
+  <h3>{{composer.name}}</h3>
 
-  <ul>
-    {{#each composer.tabs as |tab|}}
-      <li>{{tab.name}}</li>
-    {{/each}}
-  </ul>
+  <br>
+
+  <table class="table table-striped">
+    <tbody>
+      {{#each composer.tabs as |tab|}}
+        <tr>
+          <td>
+            {{tab.difficulty}}
+          </td>
+
+          <td width="70%">
+            <a href="{{tab.tabFile}}">
+              {{tab.name}}
+            </a>
+          </td>
+
+          <td width="15%">
+            {{tab.tuning}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 {{/each}}
