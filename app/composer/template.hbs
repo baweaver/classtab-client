@@ -1,0 +1,11 @@
+{{outlet}}
+
+{{#each model as |composer|}}
+  {{composer.name}} <br>
+
+  <ul>
+    {{#each composer.tabs as |tab|}}
+      <li>{{tab.name}}</li>
+    {{/each}}
+  </ul>
+{{/each}}

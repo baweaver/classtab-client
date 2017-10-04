@@ -7,6 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('composer');
+  this.route('tab');
 });
 
 export default Router;
