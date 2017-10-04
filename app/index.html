@@ -15,7 +15,12 @@
     {{content-for "head-footer"}}
   </head>
   <body>
-    {{content-for "body"}}
+    <div class="row">
+      <div class="col-md-offset-1 col-md-8">
+        {{content-for "body"}}
+      </div>
+    </div>
+
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/classtab.js"></script>
