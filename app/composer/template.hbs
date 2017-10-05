@@ -1,5 +1,13 @@
 {{#each model as |composer|}}
-  <h3>{{composer.name}}</h3>
+  <h3>
+    {{composer.name}}
+
+    <small>
+      ({{composer.birthYear}} - {{composer.deathYear}})
+
+      {{composer.musicalEra}}
+    </small>
+  </h3>
 
   <br>
 
@@ -8,22 +16,27 @@
       {{#each composer.tabs as |tab|}}
         <tr>
           <td width="10%">
+            {{fav-star id=tab.id}}
+
             <i class="fa {{difficulty-level tab.difficulty}}"></i>
 
             {{#if tab.midis}}
               {{#each tab.midis as |midiFile|}}
-                {{midi-player file=midiFile}}
+                <a href="midis/{{midiFile}}"></a>
+                {{!-- {{midi-player file=midiFile}} --}}
               {{/each}}
             {{/if}}
 
             {{#if tab.videos}}
-              <i class="fa fa-youtube-play"></i>
+              {{#each tab.videos as |video|}}
+                <a href="{{video.videoLink}}">
+                  <i class="fa fa-youtube-play text-danger"></i>
+                </a>
+              {{/each}}
             {{/if}}
           </td>
 
           <td>
-            {{fav-star id=tab.id}}
-
             {{tab-viewer tab=tab}}
           </td>
 

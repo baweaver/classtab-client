@@ -1,11 +1,9 @@
-{{!-- {{yield}} --}}
-
 {{#if isFavorited}}
-  <span class="glyphicon glyphicon-star"
+  <span class="glyphicon glyphicon-star text-warning"
     onclick={{action "removeFavorite" id}}
   ></span>
 {{else}}
-  <span class="glyphicon glyphicon-star-empty"
+  <span class="glyphicon glyphicon-star-empty text-warning"
     onclick={{action "addFavorite" id}}
   ></span>
 {{/if}}

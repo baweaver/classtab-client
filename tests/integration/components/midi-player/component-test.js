@@ -12,13 +12,4 @@ test('it renders', function(assert) {
   this.render(hbs`{{midi-player}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#midi-player}}
-      template block text
-    {{/midi-player}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

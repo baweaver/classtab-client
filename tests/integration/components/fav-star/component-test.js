@@ -12,13 +12,13 @@ test('it renders', function(assert) {
   this.render(hbs`{{fav-star}}`);
 
   assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().find('.glyphicon-star-empty').length, 1);
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#fav-star}}
-      template block text
-    {{/fav-star}}
-  `);
+test('it can favorite', function (assert) {
+  this.set('favorites', [1]);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{fav-star favorites=favorites id=1}}`);
+
+  assert.equal(this.$().find('.glyphicon-star').length, 1, "The star appears");
 });

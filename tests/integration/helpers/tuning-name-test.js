@@ -6,12 +6,20 @@ moduleForComponent('tuning-name', 'helper:tuning-name', {
   integration: true
 });
 
-// Replace this with your real tests.
 test('it renders', function(assert) {
-  this.set('inputValue', '1234');
+  this.render(hbs`{{tuning-name "E A D G B E"}}`);
+  assert.equal(this.$().text().trim(), 'Standard Tuning');
 
-  this.render(hbs`{{tuning-name inputValue}}`);
+  this.render(hbs`{{tuning-name "D A D G B E"}}`);
+  assert.equal(this.$().text().trim(), 'Drop D Tuning');
 
-  assert.equal(this.$().text().trim(), '1234');
+  this.render(hbs`{{tuning-name "D G D G B E"}}`);
+  assert.equal(this.$().text().trim(), 'Drop DG Tuning');
+
+  this.render(hbs`{{tuning-name "E A D F# B E"}}`);
+  assert.equal(this.$().text().trim(), 'Lute Tuning');
+
+  this.render(hbs`{{tuning-name "A B C D E F"}}`);
+  assert.equal(this.$().text().trim(), 'Unknown Tuning');
 });
 

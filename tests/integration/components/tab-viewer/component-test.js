@@ -9,16 +9,12 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{tab-viewer}}`);
+  this.set('tab', {
+    name:    'test',
+    tabFile: 'foo'
+  });
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{tab-viewer tab=tab}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#tab-viewer}}
-      template block text
-    {{/tab-viewer}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('a[href="foo"]').text().trim(), 'test');
 });
