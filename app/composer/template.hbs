@@ -7,18 +7,36 @@
     <tbody>
       {{#each composer.tabs as |tab|}}
         <tr>
+          <td width="10%">
+            <i class="fa {{difficulty-level tab.difficulty}}"></i>
+
+            {{#if tab.midis}}
+              {{#each tab.midis as |midiFile|}}
+                {{midi-player file=midiFile}}
+              {{/each}}
+            {{/if}}
+
+            {{#if tab.videos}}
+              <i class="fa fa-youtube-play"></i>
+            {{/if}}
+          </td>
+
           <td>
-            {{tab.difficulty}}
+            {{fav-star id=tab.id}}
+
+            {{tab-viewer tab=tab}}
           </td>
 
-          <td width="70%">
-            <a href="{{tab.tabFile}}">
-              {{tab.name}}
-            </a>
+          <td width="12%">
+            {{tuning-name tab.tuning}}
           </td>
 
-          <td width="15%">
-            {{tab.tuning}}
+          <td width="5%">
+            {{tab.timeSignature}}
+          </td>
+
+          <td width="8%">
+            {{tab.tempo}} bpm
           </td>
         </tr>
       {{/each}}

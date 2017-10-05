@@ -1,0 +1,13 @@
+<a onclick={{action "openTab" tab.tabFile}}>
+  {{tab.name}}
+</a>
+
+{{#bs-modal-simple
+  open=showModal
+  size='xl'
+  title=tab.name
+}}
+  <pre class="tab-text">{{
+    tabContent
+  }}</pre>
+{{/bs-modal-simple}}

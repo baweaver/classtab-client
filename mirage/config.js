@@ -34,5 +34,8 @@ export default function() {
    return schema.tabs.all();
  });
 
- this.get('/tabs/:id');
+ // this.get('/tabs/:id');
+
+ this.passthrough('http://www.classtab.org/**');
+ this.passthrough('/tabs/**');
 }
